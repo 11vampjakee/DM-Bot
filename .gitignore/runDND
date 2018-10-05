@@ -1,0 +1,71 @@
+import discord
+from discord.ext.commands import Bot
+from discord.ext import commands
+import asyncio
+import time
+import random
+from discord import Game
+
+
+Client = discord.client
+client = commands.Bot(command_prefix = '!')
+Clientdiscord = discord.Client()
+
+
+@client.event
+async def on_ready():
+    await client.change_presence(game=Game(name='with himself'))
+    print('Ready For Battle') 
+
+
+@client.event
+async def on_message(message):
+    if message.content.startswith('fuck'):
+        randomlist = ["I will hack you.. stop", "Hey... Think about the children", "The jews", "NO.SWEARING.ON.THE.SERVER.THANKS", "..I rolled a crit fail..", ]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content.startswith('shit'):
+        randomlist = ["You mean crap..", "UPDDAW TIHS HO", "I dont feel so good...", "A new warrior approaches!", ]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content == 'I found an item':
+        await client.send_message(message.channel,'A Legends of Zelda reference. You are the new DM. How did you manage to find this anyways? On accident? Nobody told you. I think.')
+    if message.content == 'bongo cat':
+        em = discord.Embed(description='meow')
+        em.set_image(url='https://pbs.twimg.com/media/DnjL6ynX4AEEQhF.png')
+        await client.send_message(message.channel, embed=em)
+    if ('bongo cat') in message.content:
+       await client.delete_message(message)
+    if message.content == '1up':
+        em = discord.Embed(description='Its a me... Mario!')
+        em.set_image(url='https://www.tenstickers.be/stickers/img/preview/sticker-champignon-1up-10285.png')
+        await client.send_message(message.channel, embed=em)
+    if message.content == 'swear':
+        await client.send_message(message.channel,'No, do not curse')
+    if message.content.startswith('rolld20'):
+        randomlist = ["CRIT FAIL", "2/20", "3/20", "4/20 blaze it", "5/20", "6/20", "7/20", "7/20", "8/20", "9/20", "10/20", "You rolled:11", "12/20", "13/20", "14/20", "15/20", "16/20", "17/20", "18/20", "19/20", "Nat 20", "7/20", "8/20", "9/20", "10/20", "11/20", "12/20", "13/20", "14/20",]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content.startswith('smartness check'):
+        randomlist = ["RETARTED", "2/int", "3/int", "4/int", "5/int", "6/int", "7/int", "8/int", "9/int", "10/int", "11/int", "12/int", "13/int", "14/int", "15/int", "16/int", "17/int", "18/int", "19/int", "20/20 Smarterer than you", "7/int", "8/int", "9/int", "10/int", "11/int", "12/int", "13/int", "14/int",]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content == 'darren':
+        em = discord.Embed(description='GOD')
+        em.set_image(url='https://img.pngio.com/god-png-clipart-god-png-372_279.png')
+        await client.send_message(message.channel, embed=em)
+    if ('darren') in message.content:
+       await client.delete_message(message)
+    if message.content.startswith('rolld12'):
+        randomlist = ["1/12", "2/12", "3/12", "4/12", "4/12", "5/12", "5/12", "6/12", "6/12", "7/12", "7/12", "8/12", "9/12", "10/12", "11/12", "12/12"]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content.startswith('rolld10'):
+        randomlist = ["1/10", "2/10", "3/10", "4/10", "4/10", "5/10", "5/10", "6/10", "6/10", "7/10", "8/10", "9/10", "10/10 PERFECT"]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content.startswith('rolld6'):
+        randomlist = ["1/6", "2/6", "3/6", "4/6", "5/6", "6/6",]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content.startswith('rolld4'):
+        randomlist = ["1/4", "2/4", "3/4", "4/4", "2/4", "3/4",]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+    if message.content.startswith('rolld8'):
+        randomlist = ["1/8", "2/8", "3/8", "4/8", "5/8", "5/8", "6/8", "7/8", "8/8"]
+        await client.send_message(message.channel,(random.choice(randomlist)))
+client.run('NDk1MDU4NTE1MjgzNTQyMDI2.Dpcivg.hIqwlLtyS5yGAE5sHD6N_xAeAEg')
+
